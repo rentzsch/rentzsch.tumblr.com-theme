@@ -2,9 +2,19 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>{Title}{block:PostTitle}: {PostTitle}{/block:PostTitle}</title>
+    <title>
+#if defined(HTML)
+    rentzsch.tumblr.com
+#elif defined(TUMBLR)
+    {Title}{block:PostTitle}: {PostTitle}{/block:PostTitle}
+#elif defined(MARSEDIT)
+    #weblogName#: #title#
+#endif
+    </title>
+#ifdef TUMBLR
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
+#endif
     
     <script type="text/javascript" src="http://dl.getdropbox.com/u/14209/prettify.js"></script>
     <link href="http://dl.getdropbox.com/u/14209/prettify.css" type="text/css" rel="stylesheet">
@@ -143,21 +153,41 @@
 <div id="page">
     <p id="banner"><a href="http://rentzsch.tumblr.com"><img src="http://dl.getdropbox.com/u/14209/redshed.png" width="37" height="28" alt=""></a></p>
     
+#ifdef TUMBLR
     {block:Posts}{block:Text}
+#endif
     <div id="posts">
-        <div class="post_title"><a href="{Permalink}">{Title}</a></div>
+        <div class="post_title">
+#if defined(HTML)
+            <a href="#">MyTitle</a>
+#elif defined(TUMBLR)
+            <a href="{Permalink}">{Title}</a>
+#elif defined(MARSEDIT)
+            <a href="#">#title#</a>
+#endif
+        </div>
         <div class="post_body">
-            {Body}
+#if defined(HTML)
+            <p>MyBody.</p>
+#elif defined(TUMBLR)
+            {BODY}
+#elif defined(MARSEDIT)
+            #body#
+#endif
         </div>
     </div>
+#ifdef TUMBLR
     {/block:Text}{/block:Posts}
+#endif
     <p id="footer">
+#ifdef TUMBLR
         {block:PreviousPage}
             <a href="{PreviousPage}">&#171; Previous</a>
         {/block:PreviousPage}
         {block:NextPage}
             <a href="{NextPage}">Next &#187;</a>
         {/block:NextPage}
+#endif
 
         <a href="/archive">Archive</a>
     </p>
