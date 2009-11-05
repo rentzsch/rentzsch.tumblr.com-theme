@@ -138,6 +138,13 @@
             margin-bottom: 2.5em;
         }
         
+        .tags {
+            text-align: right;
+        }
+        .tags a {
+            color: lightgray;
+        }
+        
         p img {
             display: block;
             margin-left: auto;
@@ -183,6 +190,7 @@
             <p>MyBody.</p>
 #elif defined(TUMBLR)
             {BODY}
+            {block:HasTags}<p class="tags">{block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
 #elif defined(MARSEDIT)
             #body#
 #endif
