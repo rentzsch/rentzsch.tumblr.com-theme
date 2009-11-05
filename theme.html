@@ -145,11 +145,19 @@
         }
         
         #footer {
-            text-align: left;
-            margin-bottom: 1em;
+            float: left;
+            width: 100%;
+            padding-bottom: 1em;
         }
         #footer a {
             color: lightgray;
+        }
+        #previous, #next {
+            float: left;
+            margin-right: 1em;
+        }
+        #archive {
+            float: right;
         }
         </style>
 </head>
@@ -183,18 +191,23 @@
 #ifdef TUMBLR
     {/block:Text}{/block:Posts}
 #endif
-    <p id="footer">
+    <div id="footer">
 #ifdef TUMBLR
         {block:PreviousPage}
+        <div id="previous">
             <a href="{PreviousPage}">&#171; Previous</a>
+        </div>
         {/block:PreviousPage}
         {block:NextPage}
+        <div id="next">
             <a href="{NextPage}">Next &#187;</a>
+        </div>
         {/block:NextPage}
 #endif
-
-        <a href="/archive">Archive</a>
-    </p>
+        <div id="archive">
+            <a href="/archive">Archive</a>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
