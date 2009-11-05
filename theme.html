@@ -138,10 +138,11 @@
             margin-bottom: 2.5em;
         }
         
-        .tags {
+        .date_and_tags {
             text-align: right;
+            color: lightgray;
         }
-        .tags a {
+        .date_and_tags a {
             color: lightgray;
         }
         
@@ -190,10 +191,18 @@
             <p>MyBody.</p>
 #elif defined(TUMBLR)
             {BODY}
-            {block:HasTags}<p class="tags">{block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
 #elif defined(MARSEDIT)
             #body#
 #endif
+            <p class="date_and_tags">
+#if defined(HTML)
+                <a href="#">tag1</a> <a href="#">tag2</a> Nov 5 2009
+#elif defined(TUMBLR)
+                {block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags} {ShortMonth} {DayOfMonth} {Year}
+#elif defined(MARSEDIT)
+                <a href="#">#tags#</a> 2001 Jan 1
+#endif
+            </p>
         </div>
     </div>
 #ifdef TUMBLR
