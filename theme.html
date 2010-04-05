@@ -16,8 +16,8 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 #endif
     
-    <script type="text/javascript" src="http://dl.getdropbox.com/u/14209/prettify.js"></script>
-    <link href="http://dl.getdropbox.com/u/14209/prettify.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+    <link href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" type="text/css" rel="stylesheet">
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script type="text/javascript">
@@ -171,7 +171,7 @@
 </head>
 <body>
 <div id="page">
-    <p id="banner"><a href="http://rentzsch.tumblr.com"><img src="http://dl.getdropbox.com/u/14209/redshed.png" width="37" height="28" alt=""></a></p>
+    <p id="banner"><a href="http://rentzsch.tumblr.com"><img src="http://25.media.tumblr.com/tumblr_l0dxp2eIIj1qao4zuo1_100.png" width="37" height="28" alt=""></a></p>
     
 #ifdef TUMBLR
     {block:Posts}{block:Text}
@@ -228,14 +228,16 @@
 </div>
 
 <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-11455911-1");
-        pageTracker._trackPageview();
-    } catch(err) {}
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-11455911-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+        var ga = document.createElement('script');
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        ga.setAttribute('async', 'true');
+        document.documentElement.firstChild.appendChild(ga);
+    })();
 </script>
 
 </body>
