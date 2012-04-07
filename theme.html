@@ -3,15 +3,15 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>
-#if defined(HTML)
+#if defined(TARGET_HTML)
     rentzsch.tumblr.com
-#elif defined(TUMBLR)
+#elif defined(TARGET_TUMBLR)
     {Title}{block:PostTitle}: {PostTitle}{/block:PostTitle}
-#elif defined(MARSEDIT)
+#elif defined(TARGET_MARSEDIT)
     #weblogName#: #title#
 #endif
     </title>
-#ifdef TUMBLR
+#ifdef TARGET_TUMBLR
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
 #endif
@@ -173,43 +173,43 @@
 <div id="page">
     <p id="banner"><a href="http://rentzsch.tumblr.com"><img src="http://25.media.tumblr.com/tumblr_l0dxp2eIIj1qao4zuo1_100.png" width="37" height="28" alt=""></a></p>
     
-#ifdef TUMBLR
+#ifdef TARGET_TUMBLR
     {block:Posts}{block:Text}
 #endif
     <div id="posts">
         <div class="post_title">
-#if defined(HTML)
+#if defined(TARGET_HTML)
             <a href="#">MyTitle</a>
-#elif defined(TUMBLR)
+#elif defined(TARGET_TUMBLR)
             <a href="{Permalink}">{Title}</a>
-#elif defined(MARSEDIT)
+#elif defined(TARGET_MARSEDIT)
             <a href="#">#title#</a>
 #endif
         </div>
         <div class="post_body">
-#if defined(HTML)
+#if defined(TARGET_HTML)
             <p>MyBody.</p>
-#elif defined(TUMBLR)
+#elif defined(TARGET_TUMBLR)
             {BODY}
-#elif defined(MARSEDIT)
+#elif defined(TARGET_MARSEDIT)
             #body#
 #endif
             <p class="date_and_tags">
-#if defined(HTML)
+#if defined(TARGET_HTML)
                 <a href="#">tag1</a> <a href="#">tag2</a> Nov 5 2009
-#elif defined(TUMBLR)
+#elif defined(TARGET_TUMBLR)
                 {block:Tags} <a href="{TagURL}">{Tag}</a>{/block:Tags} {ShortMonth} {DayOfMonth} {Year}
-#elif defined(MARSEDIT)
+#elif defined(TARGET_MARSEDIT)
                 <a href="#">#tags#</a> 2001 Jan 1
 #endif
             </p>
         </div>
     </div>
-#ifdef TUMBLR
+#ifdef TARGET_TUMBLR
     {/block:Text}{/block:Posts}
 #endif
     <div id="footer">
-#ifdef TUMBLR
+#ifdef TARGET_TUMBLR
         {block:PreviousPage}
         <div id="previous">
             <a href="{PreviousPage}">&#171; Previous</a>
